@@ -1,0 +1,22 @@
+--- # Transfer the Script on Remote server
+- hosts: localhost
+  become: yes
+  tasks:
+     - name: Copy Dockerfile
+       action: copy src=Dockerfile dest=/home/aqsa286/Desktop/Docker mode=0777
+
+     - name: build docker image
+       docker_image:
+          name: ubuntu_img
+          build:
+             path: /home/aqsa286/Desktop/Docker
+          source: build
+          state: present
+           
+     - name : Running the Container
+       docker_container:
+          name: ubuntu_container
+          image: ubuntu_img
+          state: started
+          interactive: yes
+        
