@@ -3,7 +3,7 @@
   become: yes
   tasks:
      - name: Copy Dockerfile
-       action: copy src=Dockerfile dest=/home/aqsa286/Desktop/Docker mode=0777
+       action: copy src=/home/ansible/Docker/Dockerfile dest=/home/aqsa286/Desktop/Docker mode=0777
 
      - name: build docker image
        docker_image:
