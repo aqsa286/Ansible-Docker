@@ -11,6 +11,7 @@
              path: /home/aqsa286/Desktop/Docker
           source: build
           state: present
+          become: yes
            
      - name : Running the Container
        docker_container:
