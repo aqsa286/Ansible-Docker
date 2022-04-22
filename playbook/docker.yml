@@ -12,6 +12,7 @@
           source: build
           state: present
           become: yes
+          DOCKER_API_VERSION: auto
            
      - name : Running the Container
        docker_container:
