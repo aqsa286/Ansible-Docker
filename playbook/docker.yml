@@ -1,7 +1,6 @@
 --- # Docker Container
 - hosts: localhost
-  become: yes
-  become_method: sudo
+  become: true
   tasks:
      - name: Copy Dockerfile
        action: copy src=/home/ansible/Docker/Dockerfile dest=/home/aqsa286/Desktop/Docker mode=0777
