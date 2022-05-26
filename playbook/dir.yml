@@ -20,5 +20,4 @@
   - name: Transfer the script
     action: copy src=/home/ansible/Demo_task/APIs dest=/home/ansible/test mode=0777
      
-  - name: Execute the script
-    command: sh /home/ansible/test/APIs/curl.sh
+
