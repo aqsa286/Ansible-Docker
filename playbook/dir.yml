@@ -1,0 +1,24 @@
+--- 
+- hosts: localhost
+  become: yes
+  tasks:
+  - name: Ansible check directory exists.
+    stat:
+      path: /home/ansible/test
+    register: my_folder
+
+  - debug:
+      msg: The test directory is already existed
+    when: my_folder.stat.exists
+
+  - name: Create directory if not exists 
+    file:
+      path: /home/ansible/test
+      state: directory
+      mode: "u=rwx,g=rwx,o=rx"
+
+  - name: Transfer the script
+    action: copy src=/home/ansible/Demo_task/APIs dest=/home/ansible/test mode=0777
+     
+  - name: Execute the script
+    command: sh /home/ansible/test/APIs/curl.sh

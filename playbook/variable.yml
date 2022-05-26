@@ -1,0 +1,8 @@
+--- # My first Variable playbook for testing purpose
+- hosts: localhost
+  become: yes  
+  vars:
+      pkgname: putty
+  tasks:
+                - name: install putty on ubuntu 20
+                  action: apt name="{{pkgname}}" state=present
